@@ -6,7 +6,7 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:07:34 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/04 01:06:27 by lebojo           ###   ########.fr       */
+/*   Updated: 2023/12/04 01:29:59 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 void print(std::string str)
 {
 	std::cout << str << "\n";
+}
+
+void printRaw(std::string str)
+{
+	std::cout << str;
 }
 
 class Contact
@@ -93,32 +98,54 @@ public:
 		std::string	tmp;
 		print("Création d'un nouveau contact!");
 		print("Quel est son prénom ?");
+		printRaw("->");
 		std::cin >> tmp;
 		contact[index].SetFirstName(tmp);
 		print("Quel est son nom ?");
+		printRaw("->");
 		std::cin >> tmp;
 		contact[index].SetLastName(tmp);
 		print("Quel est son surnom (pseudo) ?");
+		printRaw("->");
 		std::cin >> tmp;
 		contact[index].SetNickName(tmp);
 		print("Quel est son n° de natel ?");
+		printRaw("->");
 		std::cin >> tmp;
 		contact[index].SetPhoneNumber(tmp);
 		print("Et maintenant, quel est son plus sombre secret ?");
+		printRaw("->");
 		std::cin >> tmp;
 		contact[index].SetDarkestSecret(tmp);
-		print("Le contact à été créer avec succès!");
+		printRaw("Le contact ");
+		std::cout << index;
+		print(" à été créée avec succès!");
 		if (index < 7)
 			index++;
 		else
 			index = 0;
 	}
+	
 };
 
 int main()
 {
 	PhoneBook repertoire;
+	std::string cmd;
 
+	cmd = "boulboul";
 	repertoire.SetIndex(0);
-	repertoire.CreateContact();
+	while (cmd != "EXIT")
+	{
+		printRaw("PhoneBook> ");
+		std::cin >> cmd;
+		if (cmd == "ADD")
+			repertoire.CreateContact();
+		else if (cmd == "EXIT")
+			break;
+		else
+			print("Désolé, la commande n'as pas été reconnue :(");
+	}
+	print("Tous les contacts ont été supprimés!\nBonne journée.");
+	return (0);
 }
