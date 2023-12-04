@@ -6,11 +6,12 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:07:34 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/04 01:29:59 by lebojo           ###   ########.fr       */
+/*   Updated: 2023/12/04 01:46:12 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 void print(std::string str)
@@ -93,6 +94,11 @@ public:
 		return index;
 	}
 	
+	void init()
+	{
+		SetIndex(0);
+	}
+
 	void CreateContact()
 	{
 		std::string	tmp;
@@ -118,14 +124,75 @@ public:
 		std::cin >> tmp;
 		contact[index].SetDarkestSecret(tmp);
 		printRaw("Le contact ");
-		std::cout << index;
+		std::cout << index + 1;
 		print(" à été créée avec succès!");
 		if (index < 7)
 			index++;
 		else
 			index = 0;
 	}
-	
+
+	void PrintListItem(std::string str)
+	{
+		if (str.length() <= 10)
+			std::cout << std::setw(10) << std::right << str;
+		else
+			std::cout << std::setw(10) << std::right << str.substr(0, 9) + ".";
+	}
+
+	void DisplayList()
+	{
+		std::string	tmp;
+		
+		printRaw("     index|");
+		printRaw("first name|");
+		printRaw(" last name|");
+		printRaw("  nickname|");
+		printRaw("\n");
+		for(int i = 0; i < 8; i++)
+		{
+			printRaw("         ");
+			std::cout << i + 1 << "|";
+			PrintListItem(contact[i].GetFirstName());
+			printRaw("|");
+			PrintListItem(contact[i].GetLastName());
+			printRaw("|");
+			PrintListItem(contact[i].GetNickName());
+			print("|");
+		}
+	}
+
+	void DisplayContact(int i)
+	{
+		printRaw("\033[1;32mFirst name: \033[0m");
+		PrintListItem(contact[i].GetFirstName());
+		printRaw("\n\033[1;32mLast name: \033[0m");
+		PrintListItem(contact[i].GetLastName());
+		printRaw("\n\033[1;32mNickname: \033[0m");
+		PrintListItem(contact[i].GetNickName());
+		printRaw("\n\033[1;32mPhone number: \033[0m");
+		PrintListItem(contact[i].GetPhoneNumber());
+		printRaw("\n\033[1;32mDarkest secret: \033[0m");
+		PrintListItem(contact[i].GetDarkestSecret());
+		printRaw("\n");
+	}
+
+	void Search()
+	{
+		int who;
+		
+		DisplayList();
+		print("Qui cherches-tu ?");
+		printRaw("->");
+		std::cin >> who;
+		if (std::cin.fail() || who > 8 || who < 1)
+		{
+			std::cin.clear();
+			std::cerr << "Ce contact n'existe pas...\n";
+			return;
+		}
+		DisplayContact(who - 1);
+	}
 };
 
 int main()
@@ -134,18 +201,21 @@ int main()
 	std::string cmd;
 
 	cmd = "boulboul";
-	repertoire.SetIndex(0);
-	while (cmd != "EXIT")
+	repertoire.init();
+	while (1)
 	{
 		printRaw("PhoneBook> ");
 		std::cin >> cmd;
 		if (cmd == "ADD")
 			repertoire.CreateContact();
+		else if (cmd == "S")
+			repertoire.Search();
 		else if (cmd == "EXIT")
 			break;
 		else
 			print("Désolé, la commande n'as pas été reconnue :(");
+		cmd = "boulboul";
 	}
-	print("Tous les contacts ont été supprimés!\nBonne journée.");
+	print("Tous les contacts ont été \033[1;32msupprimés\033[0m!\nBonne journée.");
 	return (0);
 }
