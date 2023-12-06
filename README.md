@@ -12,7 +12,10 @@ Le projet Piscine CPP est une série d'exercices et de petits projets qui couvre
 
 Le répertoire est organisé de la manière suivante :
 
-- `ex00/`: Ce fichier contient l'implémentation de la classe `Megaphone`. La classe `Megaphone` est responsable de la conversion d'une chaîne de caractères donnée en majuscules et de son affichage dans la console.
-- `ex01/PhoneBook.cpp`: Ce fichier contient le code source d'un petit programme, qui représente un répertoire téléphonique. Il permet de stocker et de gérer des contacts téléphoniques, tels que les noms, les numéros de téléphone et les adresses e-mail.
-- `ex02/`: TODO
+- `CPP00`: Namespaces, classes, fonctions membres, stdiostreams, listes d’initialisation, static, const, et autres bases.
+- `CPP01`: Memory allocation, pointers to members, references, switch statement.
+- `CPP02`: TODO
+- `CPP03`: TODO
+- `CPP04`: TODO
+- `CPP05`: TODO
 
