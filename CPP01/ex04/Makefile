@@ -6,14 +6,16 @@
 #    By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:42:10 by lebojo            #+#    #+#              #
-#    Updated: 2023/12/08 22:33:32 by lebojo           ###   ########.fr        #
+#    Updated: 2023/12/09 00:13:11 by lebojo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= megaphone
+NAME	= replace
+
 CC		= g++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRC		= megaphone.cpp
+SRC		= main.cpp
+
 OBJDIR	= obj
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
@@ -29,7 +31,7 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
@@ -37,5 +39,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRC		= megaphone.cpp
