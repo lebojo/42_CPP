@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 02:23:50 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/11 01:56:30 by lebojo           ###   ########.fr       */
+/*   Created: 2023/12/09 02:23:34 by lebojo            #+#    #+#             */
+/*   Updated: 2023/12/11 01:54:54 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-# include <iostream>
-# include <string>
+using std::string;
 
-class Harl
+int	error(string err)
 {
-private:
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
-public:
-	void	complain(std::string level);
-};
+	std::cout << "Error: " << err << std::endl;
+	return (1);
+}
 
-typedef void (Harl::*fncPtr)(void);
+int	main(int ac, char **av)
+{
+	Harl harl;
+	string input;
 
-#endif
+	if (ac != 2)
+		return error("args");
+	harl.complain(av[1]);
+	return 0;
+}
