@@ -6,13 +6,13 @@
 #    By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:42:10 by lebojo            #+#    #+#              #
-#    Updated: 2023/12/14 03:08:16 by jchapell         ###   ########.fr        #
+#    Updated: 2023/12/14 03:57:21 by jchapell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fixed
 
-CC		= g++
+CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRC		= main.cpp Fixed.cpp
 
