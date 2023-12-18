@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 21:43:02 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/18 20:15:01 by lebojo           ###   ########.fr       */
+/*   Created: 2023/12/18 17:52:38 by lebojo            #+#    #+#             */
+/*   Updated: 2023/12/18 20:07:42 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(string newName) : ClapTrap(newName)
+FragTrap::FragTrap(string newName) : ClapTrap(newName)
 {
 	color();
 	print(this->name);
 	reset();
-	this->isGuarded = false;
-	println(" just transform into a ScavTrap!");
+	println(" just transform into a FragTrap!");
+	ClapTrap::healthPoint = 100;
+	ClapTrap::energyPoint = 100;
+	ClapTrap::attackDamage = 30;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
 	color();
 	print(this->name);
 	reset();
-	println(" lost his Scav privilege!");
+	println(" lost his Frag privilege!");
 }
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys(void)
 {
 	color();
 	print(this->name);
 	reset();
-	this->isGuarded = !this->isGuarded;
-	if (this->isGuarded)
-		println(" have enterred in Gate keeper mode (the gates will be keeped)");
-	else
-		println(" have exited Gate keeper mode");
+	println(": High five?");
 }
