@@ -6,7 +6,7 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 21:43:19 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/14 22:28:06 by lebojo           ###   ########.fr       */
+/*   Updated: 2023/12/18 18:07:54 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 class ScavTrap : public ClapTrap
 {
+private:
+	bool isGuarded;
 public:
 	ScavTrap(string newName);
 	~ScavTrap();

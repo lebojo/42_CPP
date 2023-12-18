@@ -6,11 +6,11 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:30:18 by jchapell          #+#    #+#             */
-/*   Updated: 2023/12/14 22:29:35 by lebojo           ###   ########.fr       */
+/*   Updated: 2023/12/18 18:08:32 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -58,6 +58,19 @@ int main(void)
 	print("\n\n\n");
 	println("BoJack: Whatever, I've got a lot of these anyway");
 	println("*explosion*");
+
+	FragTrap ft("Bilbo");
+	
+	ft.highFivesGuys();
+
+	println("BoJack: ENOUGH! STOP IT!");
+	ft.attack("Majestix");
+	st.takeDamage(30);
+	st.guardGate();
+	ft.attack("Majestix");
+	st.takeDamage(30);
+	st.attack("Bilbo");
+	ft.takeDamage(20);
 
 	return 0;
 }

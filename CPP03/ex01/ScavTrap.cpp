@@ -6,7 +6,7 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 21:43:02 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/14 22:29:21 by lebojo           ###   ########.fr       */
+/*   Updated: 2023/12/18 18:07:54 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ScavTrap::ScavTrap(string newName) : ClapTrap(newName)
 	color();
 	print(this->name);
 	reset();
+	this->isGuarded = false;
 	println(" just transform into a ScavTrap!");
 }
 
@@ -25,7 +26,7 @@ ScavTrap::~ScavTrap()
 	color();
 	print(this->name);
 	reset();
-	println(" is lost his Scav privilege!");
+	println(" lost his Scav privilege!");
 }
 
 void ScavTrap::guardGate()
@@ -33,5 +34,9 @@ void ScavTrap::guardGate()
 	color();
 	print(this->name);
 	reset();
-	println(" have enterred in Gate keeper mode (the gates will be keeped)");
+	this->isGuarded = -this->isGuarded;
+	if (this->isGuarded)
+		println(" have enterred in Gate keeper mode (the gates will be keeped)");
+	else
+		println(" have exited Gate keeper mode");
 }

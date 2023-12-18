@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 21:43:19 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/18 18:07:54 by lebojo           ###   ########.fr       */
+/*   Created: 2023/12/18 17:47:49 by lebojo            #+#    #+#             */
+/*   Updated: 2023/12/18 17:51:27 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
-private:
-	bool isGuarded;
 public:
-	ScavTrap(string newName);
-	~ScavTrap();
-	
-	void guardGate();
+	FragTrap(string newName);
+	~FragTrap();
+
+	void highFivesGuys(void);
 };
 
 #endif

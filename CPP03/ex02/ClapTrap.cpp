@@ -6,7 +6,7 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:12:14 by jchapell          #+#    #+#             */
-/*   Updated: 2023/12/14 22:22:17 by lebojo           ###   ########.fr       */
+/*   Updated: 2023/12/18 17:55:34 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ ClapTrap::ClapTrap(string newName)
 	println(" just spawned!");
 	this->name = newName;
 	this->healthPoint = 100;
-	this->energyPoint = 50;
-	this->attackDamage = 20;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
 }
 
 ClapTrap::~ClapTrap()
