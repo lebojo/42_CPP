@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 17:47:49 by lebojo            #+#    #+#             */
-/*   Updated: 2024/01/31 16:17:04 by lebojo           ###   ########.fr       */
+/*   Created: 2024/01/31 16:35:45 by lebojo            #+#    #+#             */
+/*   Updated: 2024/01/31 16:45:38 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#include "Animal.hpp"
 
-# include "ScavTrap.hpp"
-
-class FragTrap : virtual public ClapTrap
+int main()
 {
-public:
-	FragTrap(string newName);
-	~FragTrap();
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	void highFivesGuys(void);
-};
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	
+	j->makeSound();
+	i->makeSound();
 
-#endif
+	delete meta;
+	delete j;
+	delete i;
+}

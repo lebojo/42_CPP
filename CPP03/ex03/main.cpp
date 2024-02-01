@@ -6,7 +6,7 @@
 /*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:30:18 by jchapell          #+#    #+#             */
-/*   Updated: 2023/12/18 20:55:11 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/01/31 16:13:49 by lebojo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,14 @@ int main(void)
 	
 	dt.attack("Ziziman");
 	
+	println("Thanks for reading! It was fun to do :)");
+	println("I hope you enjoyed it as much as I did");
+	println("See you soon!");
+	println("PS: Play borderlands");
+	println("PS2: For real, play borderlands");
+	println("PS3: I'm not kidding, play borderlands");
+	println("PS4: I'm serious, play borderlands");
+	println("PS5: I'm not joking, play borderlands");
+	println("PS6: It's not out yet, but play borderlands");
 	return 0;
 }
