@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:11:02 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/09 02:10:09 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/06 00:15:05 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	main(int ac, char **av)
 		std::string tmp = "";
 		int i = 0;
 
+		if (c != subs[i])
+		{
+			ofs.put(c);
+			continue;
+		}
 		while (subs[i] && c == subs[i])
 		{
 			tmp = tmp + c;
@@ -52,8 +57,16 @@ int	main(int ac, char **av)
 			i++;
 		}
 		if (!subs[i])
+		{
 			ofs.write(av[3], std::string(av[3]).size());
-		ofs.put(c);
+			ofs.put(c);
+		}
+		else
+		{
+			i = 0;
+			while (tmp[i])
+				ofs.put(tmp[i++]);
+		}
 	}
 
 	ifs.close();
