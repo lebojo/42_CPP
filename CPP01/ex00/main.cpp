@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 22:46:12 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/05 23:23:31 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/05 18:57:52 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int main(void)
 {
-	// Zombie* test;
+	Zombie* test;
 
-	// test = newZombie("Zizi");
+	test = newZombie("Zizi");
 
-	// test->announce();
-	// randomChump("Paul");
-	// delete test;
+	test->announce();
+	randomChump("Paul");
+	delete test;
 	return 0;
 }

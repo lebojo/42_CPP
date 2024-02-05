@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+         #
+#    By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:42:10 by lebojo            #+#    #+#              #
-#    Updated: 2024/02/02 18:09:40 by lebojo           ###   ########.fr        #
+#    Updated: 2024/02/05 19:44:04 by jchapell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= animal
 
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRC		=	main.cpp Animal.cpp WrongAnimal.cpp 
+SRC		=	main.cpp Animal.cpp WrongAnimal.cpp Cat.cpp Dog.cpp
 
 OBJDIR	= obj
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

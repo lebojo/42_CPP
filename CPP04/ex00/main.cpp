@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:35:45 by lebojo            #+#    #+#             */
-/*   Updated: 2024/02/02 18:09:23 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/05 19:44:20 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "WrongAnimal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {
