@@ -2,12 +2,12 @@
 
 WrongAnimal::WrongAnimal()
 {
-	std::cout << "A new animal is born!" << std::endl;
+	std::cout << "A new WrongAnimal is born!" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "An animal is dead" << std::endl;
+	std::cout << "An WrongAnimal is dead" << std::endl;
 }
 
 string WrongAnimal::getType() const
@@ -32,5 +32,5 @@ WrongCat::WrongCat() : WrongAnimal()
 
 WrongCat::~WrongCat()
 {
-	std::cout << "A cat is dead" << std::endl;
+	std::cout << "A WrongCat is dead" << std::endl;
 }

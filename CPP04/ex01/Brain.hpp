@@ -1,17 +1,16 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-# include <string>
-# include <iostream>
-
-# define BRAIN_SIZE 100
+#include <iostream>
+#include <string>
 
 class Brain
 {
 public:
+	std::string ideas[100];
+
 	Brain();
 	~Brain();
-	std::string identify() const;
 };
 
 #endif
