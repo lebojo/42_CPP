@@ -6,15 +6,15 @@
 #    By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:42:10 by lebojo            #+#    #+#              #
-#    Updated: 2024/02/08 16:30:08 by jchapell         ###   ########.fr        #
+#    Updated: 2024/02/05 23:39:28 by jchapell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= fixed
+NAME	= bureaucrat
 
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRC		= main.cpp Fixed.cpp
+SRC		=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJDIR	= obj
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
