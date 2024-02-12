@@ -10,7 +10,7 @@ Animal::~Animal()
 	std::cout << "An animal is dead" << std::endl;
 }
 
-string Animal::getType() const
+std::string Animal::getType() const
 {
 	return (this->type);
 }

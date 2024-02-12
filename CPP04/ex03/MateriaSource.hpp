@@ -15,7 +15,7 @@ public:
 	MateriaSource &operator=(const MateriaSource &materiaSource);
 
 	void learnMateria(AMateria *m);
-	AMateria *createMateria(std::string const &type);
+	AMateria *createMateria(std::std::string const &type);
 };
 
 #endif

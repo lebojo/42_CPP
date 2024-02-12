@@ -10,7 +10,7 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "An WrongAnimal is dead" << std::endl;
 }
 
-string WrongAnimal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return (this->type);
 }
