@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:47:49 by lebojo            #+#    #+#             */
-/*   Updated: 2024/01/31 16:17:04 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:45:44 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 
 # include "ScavTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public ClapTrap
 {
 public:
 	FragTrap(string newName);
 	~FragTrap();
+	FragTrap();
+	FragTrap(const FragTrap& other);
+	FragTrap&	operator=(FragTrap const& rhs);
 
 	void highFivesGuys(void);
 };

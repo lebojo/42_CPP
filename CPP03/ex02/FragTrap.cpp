@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:52:38 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/18 17:58:13 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:45:51 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,29 @@ void FragTrap::highFivesGuys(void)
 	print(this->name);
 	reset();
 	println(": High five?");
+}
+
+FragTrap::FragTrap(void) : ClapTrap()
+{
+	color();
+	print(this->name);
+	reset();
+	println(" just transform into a FragTrap! (default)");
+}
+
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
+{
+	color();
+	print(this->name);
+	reset();
+	println(" just transform into a FragTrap! (copy)");
+}
+
+FragTrap&	FragTrap::operator=(FragTrap const& rhs)
+{
+	this->name = rhs.name;
+	this->healthPoint = rhs.healthPoint;
+	this->energyPoint = rhs.energyPoint;
+	this->attackDamage = rhs.attackDamage;
+	return *this;
 }

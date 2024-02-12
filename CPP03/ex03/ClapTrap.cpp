@@ -107,3 +107,27 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << this->healthPoint;
 	println("HP remain)");
 }
+
+ClapTrap&	ClapTrap::operator=(ClapTrap const&  rhs)
+{
+	if (this != &rhs)
+	{
+		this->healthPoint = rhs.healthPoint;
+		this->attackDamage = rhs.attackDamage;
+		this->energyPoint = rhs.energyPoint;
+	}
+	std::cout << "Assignation operator called" << std::endl;
+	return *this;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &src): name(src.name)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
+	return ;
+}
+ClapTrap::ClapTrap(void): name("Nameless"), healthPoint(10), energyPoint(10), attackDamage(0)
+{
+	std::cout << "Beware..The Nameless..(Default constructor called)" << std::endl;
+	return ;
+}

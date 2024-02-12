@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:03:39 by jchapell          #+#    #+#             */
-/*   Updated: 2023/12/14 05:50:00 by jchapell         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:41:21 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ public:
 	void	beRepaired(unsigned int amount);
 
 	ClapTrap(string newName);
+	ClapTrap();
 	~ClapTrap();
+	ClapTrap(const ClapTrap& other);
+	ClapTrap&	operator=(ClapTrap const& rhs);
 };
 
 #endif

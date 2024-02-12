@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 21:43:19 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/18 20:31:10 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:46:15 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
 private:
 	bool isGuarded;
 public:
 	ScavTrap(string newName);
+	ScavTrap();
 	~ScavTrap();
+	ScavTrap(const ScavTrap& other);
+	ScavTrap&	operator=(ScavTrap const& rhs);
 	
 	void guardGate();
 };

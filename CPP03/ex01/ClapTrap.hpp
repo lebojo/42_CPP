@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:03:39 by jchapell          #+#    #+#             */
-/*   Updated: 2023/12/14 22:17:23 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:37:09 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ public:
 	void	beRepaired(unsigned int amount);
 
 	ClapTrap(string newName);
+	ClapTrap();
 	~ClapTrap();
+	ClapTrap(const ClapTrap& other);
+	ClapTrap&	operator=(ClapTrap const& rhs);
 };
 
 void	color();

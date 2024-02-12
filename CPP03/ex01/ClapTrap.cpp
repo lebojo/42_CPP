@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 05:12:14 by jchapell          #+#    #+#             */
-/*   Updated: 2023/12/14 22:22:17 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:33:40 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,28 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->healthPoint += amount;
 	std::cout << this->healthPoint;
 	println("HP remain)");
+}
+
+ClapTrap&	ClapTrap::operator=(ClapTrap const&  rhs)
+{
+	if (this != &rhs)
+	{
+		this->healthPoint = rhs.healthPoint;
+		this->attackDamage = rhs.attackDamage;
+		this->energyPoint = rhs.energyPoint;
+	}
+	std::cout << "Assignation operator called" << std::endl;
+	return *this;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &src): name(src.name)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
+	return ;
+}
+ClapTrap::ClapTrap(void): name("Nameless"), healthPoint(10), energyPoint(10), attackDamage(0)
+{
+	std::cout << "Beware..The Nameless..(Default constructor called)" << std::endl;
+	return ;
 }
