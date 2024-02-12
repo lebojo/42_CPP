@@ -7,6 +7,8 @@ class Dog : public Animal {
 public:
 	Dog();
 	~Dog();
+	Dog(Dog const & src);
+	Dog&	operator=(Dog const& rhs);
 };
 
 #endif

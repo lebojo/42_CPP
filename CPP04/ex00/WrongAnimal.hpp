@@ -4,21 +4,16 @@
 #include <string>
 #include <iostream>
 
-using std::string;
-
 class WrongAnimal {
 protected:
-	string type;
+	std::string type;
 public:
 	WrongAnimal();
 	~WrongAnimal();
-	string	getType() const;
+	WrongAnimal(WrongAnimal const & src);
+	WrongAnimal&	operator=(WrongAnimal const& rhs);
+	std::string	getType() const;
 	virtual void	makeSound() const;
 };
 
-class WrongCat : public WrongAnimal {
-public:
-	WrongCat();
-	~WrongCat();
-};
 #endif

@@ -4,15 +4,15 @@
 #include <string>
 #include <iostream>
 
-using std::string;
-
 class Animal {
 protected:
-	string type;
+	std::std::string type;
 public:
+	Animal(Animal const & src);
+	Animal&	operator=(Animal const& rhs);
 	Animal();
 	~Animal();
-	string	getType() const;
+	std::std::string	getType() const;
 	virtual void	makeSound() const;
 };
 

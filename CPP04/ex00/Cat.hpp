@@ -5,6 +5,8 @@
 
 class Cat : public Animal {
 public:
+	Cat(Cat const & src);
+	Cat&	operator=(Cat const& rhs);
 	Cat();
 	~Cat();
 };
