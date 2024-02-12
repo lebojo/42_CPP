@@ -6,7 +6,7 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:52:38 by lebojo            #+#    #+#             */
-/*   Updated: 2024/02/12 17:45:15 by jchapell         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:47:41 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void FragTrap::highFivesGuys(void)
 }
 
 FragTrap::FragTrap(void) : ClapTrap()
-{ex02/FragTrap.cpp ex02/FragTrap.hpp
+{
 	color();
 	print(this->name);
 	reset();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:01:09 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/18 20:53:51 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 18:05:22 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ ClapTrap(newName + "_clap_name"), ScavTrap(newName), FragTrap(newName)
 
 DiamondTrap::~DiamondTrap()
 {
+	color();
+	print(this->name);
+	reset();
+	println(" lost his Diamond privilege!");
 }
 
 void DiamondTrap::whoAmI()
@@ -35,4 +39,26 @@ void DiamondTrap::whoAmI()
 	print(ClapTrap::name);
 	reset();
 	println("!");
+}
+
+DiamondTrap::DiamondTrap()
+{
+	color();
+	print(this->name);
+	reset();
+	println(" just transform into a DiamondTrap! (default)");
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+{
+	*this = other;
+}
+
+DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& rhs)
+{
+	this->name = rhs.name;
+	this->healthPoint = rhs.healthPoint;
+	this->energyPoint = rhs.energyPoint;
+	this->attackDamage = rhs.attackDamage;
+	return *this;
 }

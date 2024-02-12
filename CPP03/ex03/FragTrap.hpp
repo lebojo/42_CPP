@@ -6,16 +6,16 @@
 /*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:47:49 by lebojo            #+#    #+#             */
-/*   Updated: 2024/02/12 17:45:44 by jchapell         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:05:15 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-# include "ScavTrap.hpp"
+# include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 public:
 	FragTrap(string newName);

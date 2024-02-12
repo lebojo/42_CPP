@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchapell <jchapell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:16:44 by lebojo            #+#    #+#             */
-/*   Updated: 2023/12/18 20:54:53 by lebojo           ###   ########.fr       */
+/*   Updated: 2024/02/12 17:55:03 by jchapell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DIAMONDTRAP_HPP
 
 # include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap {
 private:
@@ -21,8 +22,10 @@ private:
 public: 
 	DiamondTrap(string newName);
 	~DiamondTrap();
+	DiamondTrap();
+	DiamondTrap(const DiamondTrap& other);
+	DiamondTrap&	operator=(DiamondTrap const& rhs);
 
-	using ScavTrap::attack;
 	void whoAmI();
 };
 
