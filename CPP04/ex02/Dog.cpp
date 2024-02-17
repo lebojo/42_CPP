@@ -4,18 +4,28 @@ Dog::Dog() : Animal()
 {
 	this->type = "Dog";
 	std::cout << "A new dog is born!" << std::endl;
-	this->brain = new Brain();
 }
 
 Dog::~Dog()
 {
 	std::cout << "A dog is dead" << std::endl;
-	delete this->brain;
 }
 
-Dog::Dog(const Dog &copy) : brain(new Brain(*copy.brain))
+Dog::Dog(Dog const &src)
 {
-	std::cout << "Dog is copied!" << std::endl;
+	*this = src;
+	std::cout << "Copy constructor called (Dog)" << std::endl;
+	return ;
+}
+
+Dog&	Dog::operator=(Dog const&  rhs)
+{
+	if (this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	std::cout << "Assignation operator called (Dog)" << std::endl;
+	return *this;
 }
 
 void Dog::makeSound() const

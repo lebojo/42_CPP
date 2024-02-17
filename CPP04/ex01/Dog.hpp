@@ -11,6 +11,7 @@ public:
 	Dog();
 	~Dog();
 	Dog(const Dog& copy);
+	Dog& operator=(const Dog& copy);
 };
 
 #endif

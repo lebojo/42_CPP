@@ -1,7 +1,7 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character(std::std::string const &name) : _name(name)
+Character::Character(std::string const &name) : _name(name)
 {
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
@@ -33,7 +33,7 @@ Character &Character::operator=(const Character &character)
 	return (*this);
 }
 
-std::std::string const &Character::getName() const
+std::string const &Character::getName() const
 {
 	return (_name);
 }

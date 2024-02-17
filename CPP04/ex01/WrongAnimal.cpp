@@ -23,14 +23,13 @@ void WrongAnimal::makeSound() const
 		std::cout << "Animal sound" << std::endl;
 }
 
-
-WrongCat::WrongCat() : WrongAnimal()
+WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 {
-	this->type = "WrongCat";
-	std::cout << "A new Wrongcat is born!" << std::endl;
+	*this = animal;
 }
 
-WrongCat::~WrongCat()
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &animal)
 {
-	std::cout << "A WrongCat is dead" << std::endl;
+	this->type = animal.type;
+	return (*this);
 }

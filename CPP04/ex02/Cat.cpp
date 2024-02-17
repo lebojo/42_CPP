@@ -18,6 +18,16 @@ Cat::Cat(const Cat &copy) : brain(new Brain(*copy.brain))
 	std::cout << "Cat is copied!" << std::endl;
 }
 
+Cat &Cat::operator=(const Cat &copy)
+{
+	if (this == &copy)
+		return (*this);
+	this->type = copy.type;
+	delete this->brain;
+	this->brain = new Brain(*copy.brain);
+	return (*this);
+}
+
 void Cat::makeSound() const
 {
 	Animal::makeSound();

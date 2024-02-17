@@ -12,6 +12,9 @@ protected:
 public:
 	Animal();
 	virtual ~Animal();
+	Animal(const Animal &animal);
+	Animal &operator=(const Animal &animal);
+	
 	std::string	getType() const;
 	virtual void	makeSound() const;
 };

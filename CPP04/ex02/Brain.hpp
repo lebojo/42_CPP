@@ -7,10 +7,12 @@
 class Brain
 {
 public:
-	std::std::string ideas[100];
+	std::string ideas[100];
 
 	Brain();
 	~Brain();
+	Brain(const Brain& copy);
+	Brain& operator=(const Brain& copy);
 };
 
 #endif

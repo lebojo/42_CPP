@@ -1,8 +1,8 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::std::string const &type) : _type(type) {}
+AMateria::AMateria(std::string const &type) : _type(type) {}
 
-std::std::string const &AMateria::getType() const
+std::string const &AMateria::getType() const
 {
 	return (_type);
 }
@@ -17,4 +17,10 @@ AMateria::~AMateria() {}
 AMateria::AMateria(const AMateria &aMateria)
 {
 	*this = aMateria;
+}
+
+AMateria &AMateria::operator=(const AMateria &aMateria)
+{
+	_type = aMateria._type;
+	return (*this);
 }

@@ -17,3 +17,13 @@ Dog::Dog(const Dog &copy) : brain(new Brain(*copy.brain))
 {
 	std::cout << "Dog is copied!" << std::endl;
 }
+
+Dog& Dog::operator=(const Dog &copy)
+{
+	if (this == &copy)
+		return (*this);
+	this->type = copy.type;
+	delete this->brain;
+	this->brain = new Brain(*copy.brain);
+	return (*this);
+}
