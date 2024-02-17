@@ -20,7 +20,7 @@ public:
 
 	void promote();
 	void demote();
-	void signForm(Form fm);
+	void signForm(Form *fm);
 
 	class GradeTooHighException : public std::exception
 	{

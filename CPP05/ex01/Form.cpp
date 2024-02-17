@@ -32,11 +32,11 @@ bool Form::getSignStatus() const
 
 std::ostream& operator<<(std::ostream& os, const Form& form)
 {
-	os << form.getName() << ", to sign it you must be at least:" << form.getSignGrade() << " and for exec it you must be at least: " << form.getExecGrade();
+	os << form.getName() << ", to sign it you must be at least: " << form.getSignGrade() << " and for exec it you must be at least: " << form.getExecGrade();
 	if (form.getSignStatus())
-		os << "Actual status: Signed!";
+		os << ", Actual status: Signed!";
 	else
-		os << "Actual status: Unsigned!"; 
+		os << ", Actual status: Unsigned!"; 
 	return os;
 }
 
