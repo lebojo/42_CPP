@@ -57,3 +57,18 @@ const char* Bureaucrat::GradeTooLowException::what () const throw()
 {
 	return("Grade is lower than 150");
 }
+
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) : name(bureaucrat.name)
+{
+	*this = bureaucrat;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat)
+{
+	this->grade = bureaucrat.grade;
+	return (*this);
+}
+
+Bureaucrat::Bureaucrat()
+{
+}
