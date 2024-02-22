@@ -57,3 +57,18 @@ void Form::beSigned(Bureaucrat& bc)
 	else
 		throw Form::GradeTooLowException();
 }
+
+Form::Form(const Form &form): name(form.name), signGrade(form.signGrade), execGrade(form.execGrade)
+{
+	this->signStatus = form.signStatus;
+}
+
+Form &Form::operator=(const Form &form)
+{
+	this->signStatus = form.signStatus;
+	return (*this);
+}
+
+Form::Form()
+{
+}

@@ -68,3 +68,18 @@ void Bureaucrat::signForm(Form *fc)
 		std::cout << this->getName() << " couldn't sign " << fc->getName() << " because " << e.what() << std::endl;
 	}
 }
+
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) : name(bureaucrat.name)
+{
+	*this = bureaucrat;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat)
+{
+	this->grade = bureaucrat.grade;
+	return (*this);
+}
+
+Bureaucrat::Bureaucrat()
+{
+}

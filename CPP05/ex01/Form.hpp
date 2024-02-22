@@ -29,6 +29,9 @@ public:
 
 	Form(std::string name, int signGrade, int execGrade);
 	~Form();
+	Form(const Form &form);
+	Form &operator=(const Form &form);
+	Form();
 	friend std::ostream& operator<<(std::ostream& os, const Form& form);
 
 	const std::string getName() const;
