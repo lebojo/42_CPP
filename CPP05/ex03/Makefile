@@ -6,7 +6,7 @@
 #    By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:42:10 by lebojo            #+#    #+#              #
-#    Updated: 2024/02/23 00:22:01 by lebojo           ###   ########.fr        #
+#    Updated: 2024/02/23 00:21:38 by lebojo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC_FILE= 	main.cpp \
 			AForm.cpp \
 			ShrubberyCreationForm.cpp \
 			RobotomyRequestForm.cpp \
-			PresidentialPardonForm.cpp
+			PresidentialPardonForm.cpp \
+			Intern.cpp
 
 SRC		=	$(SRC_FILE:%=$(SRCDIR)%)
 
