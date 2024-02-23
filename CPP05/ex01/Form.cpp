@@ -30,16 +30,6 @@ bool Form::getSignStatus() const
 	return (this->signStatus);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form)
-{
-	os << form.getName() << ", to sign it you must be at least: " << form.getSignGrade() << " and for exec it you must be at least: " << form.getExecGrade();
-	if (form.getSignStatus())
-		os << ", Actual status: Signed!";
-	else
-		os << ", Actual status: Unsigned!"; 
-	return os;
-}
-
 const char* Form::GradeTooHighException::what () const throw()
 {
 	return("Grade is too high!");
@@ -58,17 +48,30 @@ void Form::beSigned(Bureaucrat& bc)
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form &form): name(form.name), signGrade(form.signGrade), execGrade(form.execGrade)
+Form::Form(): name(""), signGrade(0), execGrade(0), signStatus(false)
 {
-	this->signStatus = form.signStatus;
 }
 
-Form &Form::operator=(const Form &form)
+std::ostream& operator<<(std::ostream& os, Form const& form)
 {
-	this->signStatus = form.signStatus;
-	return (*this);
+	os << form.getName() << ", to sign it you must be at least: " << form.getSignGrade() << " and for exec it you must be at least: " << form.getExecGrade();
+	if (form.getSignStatus())
+		os << ", Actual status: Signed!";
+	else
+		os << ", Actual status: Unsigned!"; 
+	return os;
 }
 
-Form::Form()
+Form::Form(const Form &src) : name(src.name), signGrade(src.signGrade), execGrade(src.execGrade), signStatus(src.signStatus)
 {
+	*this = src;
+}
+
+Form& Form::operator=(const Form&rhs)
+{
+	if (this != &rhs)
+	{
+		this->signStatus = rhs.getSignStatus();
+	}
+	return *this;
 }

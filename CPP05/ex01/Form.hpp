@@ -32,7 +32,6 @@ public:
 	Form(const Form &form);
 	Form &operator=(const Form &form);
 	Form();
-	friend std::ostream& operator<<(std::ostream& os, const Form& form);
 
 	const std::string getName() const;
 	int getSignGrade() const;
@@ -41,5 +40,5 @@ public:
 
 	void beSigned(Bureaucrat& bc);
 };
-
+std::ostream& operator<<(std::ostream& o, Form const& rhs);
 #endif
