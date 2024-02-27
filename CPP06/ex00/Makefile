@@ -6,16 +6,16 @@
 #    By: lebojo <lebojo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 17:42:10 by lebojo            #+#    #+#              #
-#    Updated: 2024/02/23 00:27:36 by lebojo           ###   ########.fr        #
+#    Updated: 2024/02/27 14:11:00 by lebojo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	scalar
+NAME	=	convert
 
 CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRCDIR	=	src/
+SRCDIR	=	./
 SRC_FILE= 	main.cpp \
 			ScalarConverter.cpp
 

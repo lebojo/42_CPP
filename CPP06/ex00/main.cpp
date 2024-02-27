@@ -7,10 +7,7 @@ int main(int ac, char **av)
 		std::cout << "Usage: ./convert [value]" << std::endl;
 		return 1;
 	}
-	ScalarConverter sc(av[1]);
-	sc.displayChar();
-	sc.displayInt();
-	sc.displayFloat();
-	sc.displayDouble();
+	ScalarConverter sc;
+	sc.convert(av[1]);
 	return 0;
 }
