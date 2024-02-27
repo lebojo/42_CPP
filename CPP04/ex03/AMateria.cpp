@@ -24,3 +24,5 @@ AMateria &AMateria::operator=(const AMateria &aMateria)
 	_type = aMateria._type;
 	return (*this);
 }
+
+AMateria::AMateria() {}

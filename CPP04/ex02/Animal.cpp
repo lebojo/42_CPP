@@ -24,3 +24,17 @@ void Animal::makeSound() const
 	else
 		std::cout << "Animal sound" << std::endl;
 }
+
+Animal::Animal(const Animal& src)
+{
+	*this = src;
+}
+
+Animal& Animal::operator=(const Animal& rhs)
+{
+	if (this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	return *this;
+}
