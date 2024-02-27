@@ -42,12 +42,6 @@ void Bureaucrat::demote()
 		throw Bureaucrat::GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
-{
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-	return os;
-}
-
 const char* Bureaucrat::GradeTooHighException::what () const throw()
 {
 	return("Grade is higher than 1");
@@ -93,4 +87,10 @@ void Bureaucrat::executeForm(AForm const & form)
 	catch(const std::exception& e){
 		std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+std::ostream &Bureaucrat::operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
+{
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	return os;
 }

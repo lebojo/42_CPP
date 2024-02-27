@@ -42,10 +42,9 @@ void Bureaucrat::demote()
 		throw Bureaucrat::GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
+std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat)
 {
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-	return os;
+	return os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 }
 
 const char* Bureaucrat::GradeTooHighException::what () const throw()

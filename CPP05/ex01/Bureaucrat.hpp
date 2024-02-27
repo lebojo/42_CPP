@@ -35,7 +35,7 @@ public:
 		public:
 			virtual const char* what() const throw();
 	};
-	friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 };
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif
