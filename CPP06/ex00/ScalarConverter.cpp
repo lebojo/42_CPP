@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <climits>
 
 ScalarConverter::ScalarConverter()
 {
@@ -26,71 +27,101 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& rhs)
 	return *this;
 }
 
-bool outChar(std::string str)
+bool isWeird(std::string str)
 {
-	if (str.length() == 1 && !isdigit(str[0]))
-		return true;
-	else if (str.length() == 1 && isdigit(str[0]))
-		return true;
-	else if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
-		return true;
-	else if (isascii(atoi(str.c_str())))
+	if (str == "nan" || str == "+inf" || str == "-inf"
+		|| str == "nanf" || str == "+inff" || str == "-inff")
 		return true;
 	else
 		return false;
-
 }
 
+bool canChar(std::string str)
+{
+	if (str.length() == 1 && !isdigit(str[0]))
+		return true;
+	else if (str.length() == 3 && str[0] == '\'' && str[2] == '\'' && !isdigit(str[1]))
+		return true;
+	else if (isdigit(str[0]) && atoi(str.c_str()) >= 32 && atoi(str.c_str()) <= 127)
+		return true;
+	else
+		return false;
+}
+
+bool canInt(std::string str)
+{
+	if (isWeird(str))
+		return false;
+	else if (atoi(str.c_str()) >= INT_MIN && atoi(str.c_str()) <= INT_MAX)
+		return true;
+	else
+		return false;
+}
+
+bool isOnlyDigit(std::string str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
+}
 
 void ScalarConverter::convert(const std::string& str)
 {
-	if (str[str.length() - 1] == 'f')
+	if (str[str.length() - 1] == 'f') //FLOAT
 	{
 		float f = atof(str.c_str());
 		
-		if (str == "nanf" || str == "+inff" || str == "-inff")
+		if (isWeird(str))
 			std::cout << "Char: impossible" << std::endl;
-		else if (outChar(str))
+		else if (canChar(str))
 			std::cout << "Char: " << (char)f << std::endl;
 		else
 			std::cout << "Char: Non displayable" << std::endl;
-		std::cout << "Int: " << (int)f << std::endl;
+		if (canInt(str))
+			std::cout << "Int: " << (int)f << std::endl;
+		else
+			std::cout << "Int: impossible" << std::endl;
 		std::cout << "Float: " << f << "f" << std::endl;
 		std::cout << "Double: " << (double)f << std::endl;
 	}
-	else if (str.find('.') != std::string::npos)
+	else if (str.find('.') != std::string::npos) //DOUBLE
 	{
 		double d = atof(str.c_str());
 		
-		if (str == "nan" || str == "+inf" || str == "-inf")
+		if (isWeird(str))
 			std::cout << "Char: impossible" << std::endl;
-		else if (outChar(str))
+		else if (canChar(str))
 			std::cout << "Char: " << (char)d << std::endl;
 		else
 			std::cout << "Char: Non displayable" << std::endl;
-		std::cout << "Int: " << (int)d << std::endl;
+		if (canInt(str))
+			std::cout << "Int: " << (int)d << std::endl;
+		else
+			std::cout << "Int: impossible" << std::endl;
 		std::cout << "Float: " << (float)d << "f" << std::endl;
 		std::cout << "Double: " << d << std::endl;
 	}
-	else if (str.length() == 1 && !isdigit(str[0]))
+	else if (str.length() == 1 && !isdigit(str[0])) //CHAR
 	{
-		if (str == "nan" || str == "+inf" || str == "-inf")
-			std::cout << "Char: impossible" << std::endl;
-		else if (outChar(str))
-			std::cout << "Char: " << str[0] << std::endl;
+		char c = str[0];
+		std::cout << "Char: " << c << std::endl;
+		if (canInt(str))
+			std::cout << "Int: " << (int)c << std::endl;
 		else
-			std::cout << "Char: Non displayable" << std::endl;
-		std::cout << "Int: " << (int)str[0] << std::endl;
-		std::cout << "Float: " << (float)str[0] << "f" << std::endl;
-		std::cout << "Double: " << (double)str[0] << std::endl;
+			std::cout << "Int: impossible" << std::endl;
+		std::cout << "Float: " << (float)c << "f" << std::endl;
+		std::cout << "Double: " << (double)c << std::endl;
 	}
-	else if (isdigit(str[0]) || (str[0] == '-' && isdigit(str[1])))
+	else if ((isdigit(str[0]) || (str[0] == '-' && isdigit(str[1]))) && isOnlyDigit(str)) //INT 
 	{
 		int i = atoi(str.c_str());
 
-		if (str == "nan" || str == "+inf" || str == "-inf")
+		if (isWeird(str))
 			std::cout << "Char: impossible" << std::endl;
-		else if (outChar(str))
+		else if (canChar(str))
 			std::cout << "Char: " << (char)i << std::endl;
 		else
 			std::cout << "Char: Non displayable" << std::endl;
@@ -100,9 +131,10 @@ void ScalarConverter::convert(const std::string& str)
 	}
 	else
 	{
-		outChar(str);
+		std::cout << "Char: impossible" << std::endl;
 		std::cout << "Int: impossible" << std::endl;
-		std::cout << "Float: " << str << "f" << std::endl;
-		std::cout << "Double: " << str << std::endl;
+		std::cout << "Float: impossible" << std::endl;
+		std::cout << "Double: impossible" << std::endl;
+		std::cout << "Input should be one of these type: char, int, float, double" << std::endl;
 	}
 }
