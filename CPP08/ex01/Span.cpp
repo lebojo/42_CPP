@@ -80,3 +80,12 @@ int Span::longestSpan()
 	}
 	return (max - min);
 }
+
+void	Span::fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	while (begin != end)
+	{
+		this->addNumber(*begin);
+		begin++;
+	}
+}

@@ -21,7 +21,8 @@ public:
 	void	addNumber(int n);
 	int		shortestSpan();
 	int		longestSpan();
-	void	fillSpan(int min, int max);
+	void	fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
 };
 
 #endif
