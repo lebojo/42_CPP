@@ -19,4 +19,5 @@ int	main(int ac, char** av)
 	
 	std::cout << span.shortestSpan() << std::endl;
 	std::cout << span.longestSpan() << std::endl;
+	return (0);
 }
