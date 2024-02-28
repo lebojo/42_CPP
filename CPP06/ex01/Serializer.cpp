@@ -18,10 +18,6 @@ Serializer::Serializer(const Serializer& src)
 
 Serializer& Serializer::operator=(const Serializer& rhs)
 {
-	if (this != &rhs)
-	{
-		//Don't forget to copy the attributes here
-	}
 	std::cout << "Serializer assignment operator called" << std::endl;
 	return *this;
 }

@@ -77,15 +77,15 @@ void ScalarConverter::convert(const std::string& str)
 		if (isWeird(str))
 			std::cout << "Char: impossible" << std::endl;
 		else if (canChar(str))
-			std::cout << "Char: " << (char)f << std::endl;
+			std::cout << "Char: " << static_cast<char>(f) << std::endl;
 		else
 			std::cout << "Char: Non displayable" << std::endl;
 		if (canInt(str))
-			std::cout << "Int: " << (int)f << std::endl;
+			std::cout << "Int: " << static_cast<int>(f) << std::endl;
 		else
 			std::cout << "Int: impossible" << std::endl;
 		std::cout << "Float: " << f << "f" << std::endl;
-		std::cout << "Double: " << (double)f << std::endl;
+		std::cout << "Double: " << static_cast<double>(f)<< std::endl;
 	}
 	else if (str.find('.') != std::string::npos) //DOUBLE
 	{
@@ -94,14 +94,14 @@ void ScalarConverter::convert(const std::string& str)
 		if (isWeird(str))
 			std::cout << "Char: impossible" << std::endl;
 		else if (canChar(str))
-			std::cout << "Char: " << (char)d << std::endl;
+			std::cout << "Char: " << static_cast<char>(d) << std::endl;
 		else
 			std::cout << "Char: Non displayable" << std::endl;
 		if (canInt(str))
-			std::cout << "Int: " << (int)d << std::endl;
+			std::cout << "Int: " << static_cast<int>(d) << std::endl;
 		else
 			std::cout << "Int: impossible" << std::endl;
-		std::cout << "Float: " << (float)d << "f" << std::endl;
+		std::cout << "Float: " << static_cast<float>(d)<< "f" << std::endl;
 		std::cout << "Double: " << d << std::endl;
 	}
 	else if (str.length() == 1 && !isdigit(str[0])) //CHAR
@@ -109,11 +109,11 @@ void ScalarConverter::convert(const std::string& str)
 		char c = str[0];
 		std::cout << "Char: " << c << std::endl;
 		if (canInt(str))
-			std::cout << "Int: " << (int)c << std::endl;
+			std::cout << "Int: " << static_cast<int>(c) << std::endl;
 		else
 			std::cout << "Int: impossible" << std::endl;
-		std::cout << "Float: " << (float)c << "f" << std::endl;
-		std::cout << "Double: " << (double)c << std::endl;
+		std::cout << "Float: " << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "Double: " << static_cast<double>(c) << std::endl;
 	}
 	else if ((isdigit(str[0]) || (str[0] == '-' && isdigit(str[1]))) && isOnlyDigit(str)) //INT 
 	{
@@ -122,12 +122,12 @@ void ScalarConverter::convert(const std::string& str)
 		if (isWeird(str))
 			std::cout << "Char: impossible" << std::endl;
 		else if (canChar(str))
-			std::cout << "Char: " << (char)i << std::endl;
+			std::cout << "Char: " << static_cast<char>(i) << std::endl;
 		else
 			std::cout << "Char: Non displayable" << std::endl;
 		std::cout << "Int: " << i << std::endl;
-		std::cout << "Float: " << (float)i << "f" << std::endl;
-		std::cout << "Double: " << (double)i << std::endl;
+		std::cout << "Float: " << static_cast<float>(i) << "f" << std::endl;
+		std::cout << "Double: " << static_cast<double>(i) << std::endl;
 	}
 	else
 	{
