@@ -52,22 +52,26 @@ int Span::shortestSpan()
 {
 	if (this->size <= 1)
 		throw std::length_error("There is not enough numbers in the Span");
+	
 	std::vector<int> sortedTab(tab, tab + size);
 	std::sort(sortedTab.begin(), sortedTab.end());
 
 	int shortest = sortedTab[1] - sortedTab[0];
+	for (int i = 0; i + 1 < (int)size; i++)
+		if (sortedTab[i + 1] - sortedTab[i] < shortest)
+			shortest = sortedTab[i + 1] - sortedTab[i];
+
 	return (shortest);
 }
 
 int Span::longestSpan()
 {
-	int min = 0;
-	int max = 0;
-
 	if (this->size <= 1)
 		throw std::length_error("There is not enough numbers in the Span");
+	int min = tab[0];
+	int max = tab[0];
 
-	for (int i = 0; i <= (int)size; i++)
+	for (int i = 0; i < (int)size; i++)
 	{
 		if (this->tab[i] < min)
 			min = this->tab[i];

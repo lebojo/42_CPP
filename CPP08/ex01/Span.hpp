@@ -21,6 +21,7 @@ public:
 	void	addNumber(int n);
 	int		shortestSpan();
 	int		longestSpan();
+	void	fillSpan(int min, int max);
 };
 
 #endif
