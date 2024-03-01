@@ -1,11 +1,10 @@
-NAME	=	span
+NAME	=	stack
 
 CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRCDIR	=	./
-SRC_FILE= 	main.cpp \
-			Span.cpp
+SRC_FILE= 	main.cpp
 
 SRC		=	$(SRC_FILE:%=$(SRCDIR)%)
 

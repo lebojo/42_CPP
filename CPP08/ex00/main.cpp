@@ -14,7 +14,7 @@ int	main(void)
 	{
 		easyfind<std::vector<int> >(list, 3);
 		std::cout << 3 << " is in the container !" << std::endl;
-		easyfind<std::vector<int> >(list, 6);
+		easyfind<std::vector<int> > (list, 6);
 	}
 	catch(std::exception & e)
 	{
