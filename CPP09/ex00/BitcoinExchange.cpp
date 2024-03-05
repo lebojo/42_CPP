@@ -95,7 +95,7 @@ int dateDifference(std::string date1, std::string date2) { // date1 est avant da
 
 float BitcoinExchange::getPrice(std::string date, float price)
 {
-	float res;
+	float res = 0;
 
 	if (dtb.find(date) != dtb.end())
 		res = dtb[date] * price;
@@ -121,6 +121,8 @@ float BitcoinExchange::getPrice(std::string date, float price)
 				break;
 			it++;
 		}
+		if (it == dtb.end())
+			it--;
 		upper = it->first;
 
 		if (dateDifference(lower, date) > dateDifference(date, upper))
@@ -128,6 +130,7 @@ float BitcoinExchange::getPrice(std::string date, float price)
 		else
 			res = dtb[lower] * price;
 	}
+
 	std::cout << date << ": " << price << "BTC => " << res << "$" << std::endl;
 	return res;
 }
