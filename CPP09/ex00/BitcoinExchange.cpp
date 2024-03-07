@@ -125,10 +125,7 @@ float BitcoinExchange::getPrice(std::string date, float price)
 			it--;
 		upper = it->first;
 
-		if (dateDifference(lower, date) > dateDifference(date, upper))
-			res = dtb[upper] * price;
-		else
-			res = dtb[lower] * price;
+		res = (dateDifference(lower, date) > dateDifference(date, upper)) ?(dtb[upper] * price) :(dtb[lower] * price);
 	}
 
 	std::cout << date << ": " << price << "BTC => " << res << "$" << std::endl;
