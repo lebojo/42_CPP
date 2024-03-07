@@ -25,3 +25,15 @@ RPN& RPN::operator=(const RPN& rhs)
 	std::cout << "RPN assignment operator called" << std::endl;
 	return *this;
 }
+
+RPN::RPN(int firstNb)
+{
+	calcul.push(firstNb);
+}
+
+void RPN::doTheMath(int n, char symbole)
+{
+	calcul.push(n);
+	if (symbole == '0')
+		return ;
+}

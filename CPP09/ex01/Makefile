@@ -5,7 +5,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRCDIR	=	./
 SRC_FILE= 	main.cpp \
-			BitcoinExchange.cpp
+			RPN.cpp
 
 SRC		=	$(SRC_FILE:%=$(SRCDIR)%)
 
