@@ -2,20 +2,24 @@
 # define RPN_HPP
 
 # include <iostream>
-#include <unordered_map>
+# include <queue>
+# include <sstream>
+
+const std::string usage_msg = "Usage: ./RPN \"n0 n1 o0 n2 o1 n3 o2...\"\nn = Number(0-9); o = Operator(* / + -)";
 
 class RPN
 {
 private:
-	std::unordered_map<char, int> math;
+	std::queue<int> numbers;
+	std::queue<char> operators;
 public:
 	RPN();
-	RPN(int firstNb);
+	RPN(char *calcul);
 	~RPN();
 	RPN(const RPN& src);
 	RPN& operator=(const RPN& rhs);
 
-	void doTheMath(int n, char symbole);
+	int doTheMath();
 };
 
 #endif

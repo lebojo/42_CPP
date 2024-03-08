@@ -5,11 +5,19 @@ int main(int ac, char** av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Usage: ./RPN \"n0 n1 o0 n2 o1 n3 o2...\"" << std::endl;
-		std::cout << "n = Number; o = Operator" << std::endl;
+		std::cout << usage_msg << std::endl;
+		return 1;
 	}
-	RPN rpn(1);
+	try{
+		RPN rpn(av[1]);
 
-	rpn.doTheMath(2, '+');
+		int res = rpn.doTheMath();
+		
+		std::cout << res << std::endl;
+	} catch (const std::invalid_argument e)
+	{
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 	return 0;
 }
