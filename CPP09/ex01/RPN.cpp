@@ -14,7 +14,7 @@ RPN& RPN::operator=(const RPN& rhs)
 {
 	if (this != &rhs)
 	{
-		//Don't forget to copy the attributes here
+		this->mybad = rhs.mybad;
 	}
 	std::cout << "RPN assignment operator called" << std::endl;
 	return *this;
