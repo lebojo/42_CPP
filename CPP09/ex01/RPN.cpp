@@ -20,62 +20,50 @@ RPN& RPN::operator=(const RPN& rhs)
 	return *this;
 }
 
-RPN::RPN(char *calcul)
+void simpleMath(std::stack<int>& mb, char c)
+{
+	int tmp;
+
+	tmp = mb.top();
+	mb.pop();
+	switch(c){
+		case '+':
+			tmp += mb.top();
+			break;
+		case '-':
+			tmp = mb.top() - tmp;
+			break;
+		case '*':
+			tmp *= mb.top();
+			break;
+		case '/':
+			tmp = mb.top() / tmp;
+			break;
+		default:
+			throw std::invalid_argument(usage_msg);
+			break;
+	}
+	mb.pop();
+	mb.push(tmp);
+}
+
+int RPN::doTheMath(char *calcul)
 {
 	std::istringstream stc(calcul); // stc -> String to char
 	std::string auth_ope = "*-+/";
 	char c;
-	bool nb = true;
 
-	stc >> c;
-	if (c >= '0' && c <= '9')
-		numbers.push(c - '0');
-	else
-		throw std::invalid_argument(usage_msg);
-	while(stc >> c)
+
+	while (stc >> c)
 	{
-		if (c == ' ')
-			continue;
-		else if (c >= '0' && c <= '9' && nb)
-			numbers.push(c - '0');
-		else if (auth_ope.find(c) != std::string::npos && !nb)
-			operators.push(c);
+		if (auth_ope.find(c) != std::string::npos)
+			simpleMath(mybad, c);
+		else if (isdigit(c))
+			mybad.push(c - '0');
 		else
 			throw std::invalid_argument(usage_msg);
-		nb = !nb;
 	}
-	if (!nb)
+	if (mybad.size() > 1)
 		throw std::invalid_argument(usage_msg);
-}
-
-int RPN::doTheMath()
-{
-	int res = numbers.front();
-
-	numbers.pop();
-	while (!numbers.empty())
-	{
-		char op = operators.front();
-
-		switch(op){
-			case '+':
-				res += numbers.front();
-				break;
-			case '-':
-				res -= numbers.front();
-				break;
-			case '*':
-				res *= numbers.front();
-				break;
-			case '/':
-				res /= numbers.front();
-				break;
-			default:
-				throw std::invalid_argument(usage_msg);
-		}
-
-		operators.pop();
-		numbers.pop();
-	}
-	return res;
+	return mybad.top();
 }

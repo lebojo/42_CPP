@@ -2,7 +2,7 @@
 # define RPN_HPP
 
 # include <iostream>
-# include <queue>
+# include <stack>
 # include <sstream>
 
 const std::string usage_msg = "Usage: ./RPN \"n0 n1 o0 n2 o1 n3 o2...\"\nn = Number(0-9); o = Operator(* / + -)";
@@ -10,16 +10,14 @@ const std::string usage_msg = "Usage: ./RPN \"n0 n1 o0 n2 o1 n3 o2...\"\nn = Num
 class RPN
 {
 private:
-	std::queue<int> numbers;
-	std::queue<char> operators;
+	std::stack<int> mybad;
 public:
 	RPN();
-	RPN(char *calcul);
 	~RPN();
 	RPN(const RPN& src);
 	RPN& operator=(const RPN& rhs);
 
-	int doTheMath();
+	int doTheMath(char *calcul);
 };
 
 #endif

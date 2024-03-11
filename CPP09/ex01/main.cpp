@@ -9,12 +9,12 @@ int main(int ac, char** av)
 		return 1;
 	}
 	try{
-		RPN rpn(av[1]);
+		RPN rpn;
 
-		int res = rpn.doTheMath();
+		int res = rpn.doTheMath(av[1]);
 		
 		std::cout << res << std::endl;
-	} catch (const std::invalid_argument e)
+	} catch (const std::invalid_argument& e)
 	{
 		std::cerr << e.what() << std::endl;
 		return 1;
