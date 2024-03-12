@@ -26,7 +26,23 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& rhs)
 	return *this;
 }
 
+void PmergeMe::print_list()
+{
+	std::queue<int> tmp = list;
+	while (!tmp.empty())
+	{
+		std::cout << tmp.front() << " ";
+		tmp.pop();
+	}
+	std::cout << std::endl;
+}
+
+void PmergeMe::push(int value)
+{
+	list.push(value);
+}
+
 int PmergeMe::doTheMath()
 {
-	
+	return 1;
 }
