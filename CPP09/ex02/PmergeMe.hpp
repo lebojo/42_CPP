@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <queue>
+#include <deque>
 
 // Pas le droit à: map(ex00) et stack(ex01)
 
@@ -12,6 +13,7 @@ class PmergeMe
 {
 private:
 	std::queue<int> list;
+	std::deque<int> list2;
 public:
 	PmergeMe();
 	~PmergeMe();
@@ -21,7 +23,10 @@ public:
 	void print_list(std::string prefix);
 
 	void push(int value);
-	int doTheMath();
+	void doTheMath();
 };
+
+void merge_insert(std::queue<int> &q);
+void merge_insert2(std::deque<int> &q);
 
 #endif
