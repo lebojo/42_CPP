@@ -18,7 +18,7 @@ public:
 	PmergeMe(const PmergeMe& src);
 	PmergeMe& operator=(const PmergeMe& rhs);
 
-	void print_list();
+	void print_list(std::string prefix);
 
 	void push(int value);
 	int doTheMath();

@@ -3,18 +3,24 @@
 
 int main(int ac, char **av)
 {
-	if (ac < 2)
-	{
-		std::cout << usage_msg << std::endl;
-		return 1;
-	}
+	srand(time(NULL)); // For true randomness
+
+	int size = 3000;
+
+	int arr[size];
+
+	for (int i = 0; i < size; i++)
+		arr[i] = rand() % size + 1; // generate a random positive integer between 1 and 100
 
 	PmergeMe p;
 
-	for(int i = 1; i < ac; i++)
-		p.push(atoi(av[i]));
+	if (ac == 1)
+		for(int i = 0; i < size; i++)
+			p.push(arr[i]);
+	else
+		for (int i = 1; i < ac; i++)
+			p.push(atoi(av[i]));
 
-	p.print_list();
 	p.doTheMath();
 
 	return 0;
