@@ -21,7 +21,8 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& rhs)
 {
 	if (this != &rhs)
 	{
-		//Don't forget to copy the attributes here
+		this->list = rhs.list;
+		this->list2 = rhs.list2;
 	}
 	std::cout << "PmergeMe assignment operator called" << std::endl;
 	return *this;
