@@ -30,7 +30,7 @@ bool AForm::getSignStatus() const
 	return (this->signStatus);
 }
 
-std::ostream& operator<<(std::ostream& os, AForm const& form)
+std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
 	os << form.getName() << ", to sign it you must be at least: " << form.getSignGrade() << " and for exec it you must be at least: " << form.getExecGrade();
 	if (form.getSignStatus())

@@ -26,6 +26,8 @@ public:
 	void signForm(AForm *fc);
 	void executeForm(AForm const & form);
 
+	std::ostream& operator<<(std::ostream& os);
+
 	class GradeTooHighException : public std::exception
 	{
 		public:
@@ -37,6 +39,5 @@ public:
 			virtual const char* what() const throw();
 	};
 };
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

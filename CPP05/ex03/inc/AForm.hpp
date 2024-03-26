@@ -32,7 +32,7 @@ public:
 	AForm(const AForm &AForm);
 	AForm &operator=(const AForm &AForm);
 	AForm();
-	friend std::ostream& operator<<(std::ostream& os, const AForm& AForm);
+	std::ostream& operator<<(std::ostream& os);
 
 	const std::string getName() const;
 	virtual int getSignGrade() const;
@@ -42,5 +42,5 @@ public:
 	virtual void beSigned(Bureaucrat& bc);
 	virtual void execute(Bureaucrat const & executor) const = 0;
 };
-std::ostream& operator<<(std::ostream& o, AForm const& rhs);
+
 #endif

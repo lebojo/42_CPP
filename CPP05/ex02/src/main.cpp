@@ -6,7 +6,7 @@
 int	main(void)
 {
 	{
-		Bureaucrat b("Jesus", 1);
+		Bureaucrat b("Jesus", 140);
 		ShrubberyCreationForm f("test");
 		b.executeForm(f);
 	}
@@ -20,5 +20,5 @@ int	main(void)
 		RobotomyRequestForm f("test");
 		b.executeForm(f);
 	}
-
+	return 0;
 }

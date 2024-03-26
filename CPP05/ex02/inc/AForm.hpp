@@ -32,7 +32,7 @@ public:
 	AForm(const AForm &AForm);
 	AForm &operator=(const AForm &AForm);
 	AForm();
-	friend std::ostream& operator<<(std::ostream& os, const AForm& AForm);
+	std::ostream& operator<<(std::ostream& os);
 
 	const std::string getName() const;
 	virtual int getSignGrade() const;

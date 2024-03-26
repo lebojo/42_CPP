@@ -33,7 +33,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getExecGrade() < executor.getGrade())
-		throw new AForm::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	std::ofstream file;
 	file.open((this->target + "_shrubbery").c_str());
 	file << "      /\\      " << std::endl;

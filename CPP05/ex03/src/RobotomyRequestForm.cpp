@@ -34,7 +34,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	if (this->getExecGrade() < executor.getGrade())
-		throw new AForm::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	std::cout << "*drilling noises*" << std::endl;
 	if (rand() % 2)
 		std::cout << target << " has been robotomized successfully" << std::endl;
