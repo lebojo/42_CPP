@@ -8,7 +8,7 @@ int	main(void)
 {
 	Intern i;
 	AForm* f = i.makeForm("robotomy request", "Test");
-	Bureaucrat b("Jeez", 1);
+	Bureaucrat b("Jeez", 140);
 	b.executeForm(*f);
 	b.signForm(f);
 	b.executeForm(*f);
