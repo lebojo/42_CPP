@@ -19,6 +19,8 @@ Serializer::Serializer(const Serializer& src)
 Serializer& Serializer::operator=(const Serializer& rhs)
 {
 	std::cout << "Serializer assignment operator called" << std::endl;
+	if (this != &rhs)
+		*this = rhs;
 	return *this;
 }
 
