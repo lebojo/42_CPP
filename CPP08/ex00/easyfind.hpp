@@ -7,11 +7,12 @@
 template <typename T>
 int easyfind(T container, int i)
 {
-	int	res = *std::find(container.begin(), container.end(), i);
+	typename T::iterator	res = std::find(container.begin(), container.end(), i);
 	
-	if (!res)
+	if (res == container.end())
 		throw std::invalid_argument(((std::string)"The following element is not in the containers"));
-	return res;
+
+	return *res;
 }
 
 #endif
