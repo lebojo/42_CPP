@@ -56,29 +56,20 @@ int Span::shortestSpan()
 	std::vector<int> sortedTab(tab, tab + size);
 	std::sort(sortedTab.begin(), sortedTab.end());
 
-	int shortest = sortedTab[1] - sortedTab[0];
-	for (int i = 0; i + 1 < (int)size; i++)
-		if (sortedTab[i + 1] - sortedTab[i] < shortest)
-			shortest = sortedTab[i + 1] - sortedTab[i];
+	std::vector<int>::iterator it = std::adjacent_find(sortedTab.begin(), sortedTab.end());
 
-	return (shortest);
+	return *(it + 1) - *it;
 }
 
 int Span::longestSpan()
 {
 	if (this->size <= 1)
 		throw std::length_error("There is not enough numbers in the Span");
-	int min = tab[0];
-	int max = tab[0];
 
-	for (int i = 0; i < (int)size; i++)
-	{
-		if (this->tab[i] < min)
-			min = this->tab[i];
-		if(this->tab[i] > max)
-			max = this->tab[i];
-	}
-	return (max - min);
+	std::vector<int> sortedTab(tab, tab + size);
+	std::sort(sortedTab.begin(), sortedTab.end());
+
+	return (sortedTab.back() - sortedTab.front());
 }
 
 void	Span::fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end)
