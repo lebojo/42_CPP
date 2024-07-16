@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <iomanip>
+#include <sys/time.h>
 
 PmergeMe::PmergeMe()
 {
@@ -49,25 +50,27 @@ void PmergeMe::push(int value)
 void PmergeMe::doTheMath()
 {
 	//Queue:
-	std::chrono::time_point<std::chrono::system_clock> start, end;
+	struct timeval start, end;
 	print_list("Before: ");
-	start = std::chrono::system_clock::now();
+	gettimeofday(&start, NULL);
 	merge_insert(list);
-	end = std::chrono::system_clock::now();
+	gettimeofday(&end, NULL);
 	print_list("After: ");
-	std::chrono::duration<double> elapsed_seconds = end - start;
+	
+	long elapsed_seconds = end.tv_sec - start.tv_sec;
+	long elapsed_useconds = ((elapsed_seconds * 1000000) + end.tv_usec) - (start.tv_usec);
 
-	std::cout << std::fixed << std::setprecision(6);
-	std::cout << "Time with queue: " << elapsed_seconds.count() << "s" << std::endl;
+	std::cout << "Time with queue: " << elapsed_seconds << "." << elapsed_useconds << std::endl;
 
 	//Deque:
-	start = std::chrono::system_clock::now();
+	gettimeofday(&start, NULL);
 	merge_insert2(list2);
-	end = std::chrono::system_clock::now();
-	elapsed_seconds = end - start;
+	gettimeofday(&end, NULL);
 
-	std::cout << std::fixed << std::setprecision(6);
-	std::cout << "Time with deque: " << elapsed_seconds.count() << "s" << std::endl;
+	elapsed_seconds = end.tv_sec - start.tv_sec;
+	elapsed_useconds = ((elapsed_seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+
+	std::cout << "Time with dequeue: " << elapsed_seconds << "." << elapsed_useconds << std::endl;
 }
 
 void merge_insert2(std::deque<int> &q)

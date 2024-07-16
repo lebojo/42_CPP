@@ -1,5 +1,5 @@
-#include "PmergeMe.hpp"
 #include <stdlib.h>
+#include "PmergeMe.hpp"
 
 int main(int ac, char **av)
 {

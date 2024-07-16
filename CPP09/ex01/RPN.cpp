@@ -26,6 +26,8 @@ void simpleMath(std::stack<int>& mb, char c)
 
 	tmp = mb.top();
 	mb.pop();
+	if (mb.empty())
+		throw std::invalid_argument(usage_msg);
 	switch(c){
 		case '+':
 			tmp += mb.top();

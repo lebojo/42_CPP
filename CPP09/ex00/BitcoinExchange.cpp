@@ -21,7 +21,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& rhs)
 {
 	if (this != &rhs)
 	{
-		//Don't forget to copy the attributes here
 	}
 	std::cout << "BitcoinExchange assignment operator called" << std::endl;
 	return *this;
